@@ -1,0 +1,23 @@
+{
+  "name": "anything-crypto-nft-bot",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Ru Chern Chong <dev@ruchern.xyz>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "axios": "^0.24.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.5.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  }
+}
