@@ -1,3 +1,3 @@
-# Anything Crypto NFT Bot
+# Discord NFT Watch Bot
 
-This is just an NFT bot to check floor prices for the Anything Crypto Discord server
+This is a bot for Discord servers to watch for NFTs floor price.
