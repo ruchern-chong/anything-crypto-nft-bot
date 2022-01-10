@@ -35,6 +35,8 @@ const guildId = process.env.DISCORD_GUILD_ID;
 
 for (const file of commandFiles) {
   const command = require(`${commandsFolderPath}/${file}`);
+  // TODO: Confirm why we need to duplicate the commands
+  commands.push(command.data.toJSON());
   client.commands.set(command.data.name, command);
 }
 
