@@ -8,15 +8,13 @@ const stringToHexColour = require("../utils/stringToHexColour");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("floor")
-    .setDescription("Get the floor price of different NFT collections")
+    .setDescription("Get the floor price of different NFT collection(s)")
     .addStringOption((option) =>
       option
         .setName("collection")
         .setDescription("Select the collection")
-        .setRequired(true)
         // TODO: Update the choices to support more options dynamically
         .addChoices([
-          ["All", "all"],
           [
             "Cronos Monkey Business",
             "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe",
@@ -29,7 +27,8 @@ module.exports = {
     const option = interaction.options.get("collection");
 
     let collections;
-    if (option.value === "all") {
+
+    if (!option) {
       try {
         collections = await fetchCollections();
         collections = collections.filter(({ collection }) => {
