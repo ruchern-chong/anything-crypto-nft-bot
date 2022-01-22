@@ -26,7 +26,6 @@ module.exports = {
     const option = interaction.options.get("collection");
 
     let collections = [];
-
     if (!option) {
       try {
         const collectionsFromConfig = Object.keys(COLLECTION_MAP).join(",");
