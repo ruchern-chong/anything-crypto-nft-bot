@@ -35,10 +35,10 @@ module.exports = {
 
     if (!option) {
       try {
-        collections = await fetchCollections();
+        const collectionsFromConfig = Object.keys(COLLECTION_MAP).join(",");
+        collections = await fetchCollections(collectionsFromConfig);
         collections = collections.filter(({ collection }) => {
           const whitelist = Object.keys(COLLECTION_MAP);
-
           return whitelist.includes(collection);
         });
       } catch (e) {
@@ -56,29 +56,35 @@ module.exports = {
 
     collections.forEach(({ collection, floorPrice }) => {
       const selectedCollection = COLLECTION_MAP[collection];
+      const selectedMarketplace = MARKETPLACE[selectedCollection.marketplace];
 
-      if (collection) {
-        const embed = new MessageEmbed()
-          .setColor(stringToHexColour(collection))
-          .setTitle(selectedCollection.name)
-          .setURL(selectedCollection.collectionUrl)
-          .setThumbnail(selectedCollection.collectionImage)
-          .setFields([
-            {
-              name: "Floor Price",
-              value: `${floorPrice} ${selectedCollection.currency}`,
-              inline: true,
-            },
-          ])
-          .setTimestamp(Date.now())
-          .setFooter({
-            text: MARKETPLACE[selectedCollection.marketplace].name,
-            iconURL: MARKETPLACE[selectedCollection.marketplace].iconUrl,
-          });
+      const embed = new MessageEmbed()
+        .setColor(stringToHexColour(collection))
+        .setTitle(selectedCollection.name)
+        .setURL(selectedCollection.collectionUrl)
+        .setThumbnail(selectedCollection.collectionImage)
+        .setFields([
+          {
+            name: "Floor Price",
+            value: `${floorPrice} ${selectedCollection.currency}`,
+            inline: true,
+          },
+        ])
+        .setTimestamp(Date.now())
+        .setFooter({
+          text: selectedMarketplace.name,
+          iconURL: selectedMarketplace.iconUrl,
+        });
 
-        embeds.push(embed);
-      }
+      embeds.push(embed);
     });
+
+    if (embeds.length === 0) {
+      const embed = new MessageEmbed()
+        .setColor("#ff0000")
+        .setTitle("Error fetching details, please try again later!");
+      return interaction.editReply({ embeds: [embed] });
+    }
 
     return interaction.editReply({ embeds });
   },

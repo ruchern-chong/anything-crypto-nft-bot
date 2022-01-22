@@ -1,3 +1,5 @@
+const EBISUS_BAY_API_BASE_URL = `https://api.ebisusbay.com`;
+
 const MARKETPLACE = {
   AGORA_CRO: {
     name: "Agora",
@@ -33,4 +35,8 @@ const COLLECTION_MAP = {
   },
 };
 
-module.exports = { COLLECTION_MAP, MARKETPLACE };
+module.exports = {
+  COLLECTION_MAP,
+  EBISUS_BAY_BASE_URL: EBISUS_BAY_API_BASE_URL,
+  MARKETPLACE,
+};

@@ -59,20 +59,16 @@ const rest = new REST({ version: "9" }).setToken(
 })();
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) {
-    return;
-  }
+  if (!interaction.isCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
 
-  if (!command) {
-    return;
-  }
+  if (!command) return;
 
   try {
     return command.execute(interaction);
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
+    console.error(e);
 
     return interaction.reply({
       content: "There was an error while executing this command!",
