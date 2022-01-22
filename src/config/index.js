@@ -28,15 +28,13 @@ const COLLECTION_MAP = {
     currency: "CRO",
     marketplace: "EBISUS_BAY",
   },
-  // "0x89dBC8Bd9a6037Cbd6EC66C4bF4189c9747B1C56": {
-  //   name: "Mad Meerkat",
-  //   collectionImage: `https://app.ebisusbay.com/img/collections/meerkats/avatar.png`,
-  //   collectionUrl: `https://app.ebisusbay.com/collection/0x89dBC8Bd9a6037Cbd6EC66C4bF4189c9747B1C56`,
-  //   description: `On January 2nd, horse enthusiasts will be able to mint their very own one-of-a-kind Lazy Horse NFT on Ebisusbay. Stay tuned for more details leading up to the launch.`,
-  //
-  //   currency: "CRO",
-  //   marketplace: "EBISUS_BAY",
-  // },
+  "0x7d0259070B5f513CA543afb6a906d42af5884B1B": {
+    name: "Lazy Horse Member NFT (PONY)",
+    collectionImage: `https://app.ebisusbay.com/img/collections/lazyhorse/avatar.png`,
+    collectionUrl: `https://app.ebisusbay.com/collection/0x7d0259070B5f513CA543afb6a906d42af5884B1B`,
+    currency: "CRO",
+    marketplace: "EBISUS_BAY",
+  },
 };
 
 module.exports = { COLLECTION_MAP, MARKETPLACE };

@@ -20,7 +20,10 @@ module.exports = {
             "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe",
           ],
           ["Lazy Horse", "0xD504ed871d33dbD4f56f523A37dceC86Ee918cb6"],
-          // ["Mad Meerkat", "0x89dBC8Bd9a6037Cbd6EC66C4bF4189c9747B1C56"],
+          [
+            "Lazy Horse Member NFT (PONY)",
+            "0x7d0259070B5f513CA543afb6a906d42af5884B1B",
+          ],
         ])
     ),
   async execute(interaction) {
