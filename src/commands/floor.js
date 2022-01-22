@@ -62,7 +62,6 @@ module.exports = {
           .setColor(stringToHexColour(collection))
           .setTitle(selectedCollection.name)
           .setURL(selectedCollection.collectionUrl)
-          .setDescription(selectedCollection.description)
           .setThumbnail(selectedCollection.collectionImage)
           .setFields([
             {
