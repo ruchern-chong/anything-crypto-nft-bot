@@ -5,8 +5,10 @@ const { COLLECTION_MAP, MARKETPLACE } = require("../config");
 const fetchCollections = require("../fetchCollections");
 const stringToHexColour = require("../utils/stringToHexColour");
 
-const entries = Object.entries(COLLECTION_MAP);
-const choices = entries.map(([key, value]) => [value.name, key]);
+const choices = Object.entries(COLLECTION_MAP).map(([key, { name }]) => [
+  name,
+  key,
+]);
 
 module.exports = {
   data: new SlashCommandBuilder()
