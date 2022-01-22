@@ -42,9 +42,9 @@ module.exports = {
         console.error(e);
       }
     }
+    console.info(`Collections:`, collections);
 
     const embeds = [];
-
     collections.forEach(({ collection, floorPrice }) => {
       const selectedCollection = COLLECTION_MAP[collection];
       const selectedMarketplace = MARKETPLACE[selectedCollection.marketplace];
@@ -69,6 +69,7 @@ module.exports = {
 
       embeds.push(embed);
     });
+    console.info(embeds);
 
     if (embeds.length === 0) {
       const embed = new MessageEmbed()
