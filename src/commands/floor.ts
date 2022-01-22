@@ -1,14 +1,12 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { MessageEmbed } from "discord.js";
 
-const { COLLECTION_MAP, MARKETPLACE } = require("../config");
-const fetchCollections = require("../fetchCollections");
-const stringToHexColour = require("../utils/stringToHexColour");
+import { COLLECTION_MAP, MARKETPLACE } from "../config";
+import fetchCollections from "../fetchCollections";
 
-const choices = Object.entries(COLLECTION_MAP).map(([key, { name }]) => [
-  name,
-  key,
-]);
+const choices: [name: string, value: string][] = Object.entries(
+  COLLECTION_MAP
+).map(([key, { name }]) => [name, key]);
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -52,7 +50,7 @@ module.exports = {
       const selectedMarketplace = MARKETPLACE[selectedCollection.marketplace];
 
       const embed = new MessageEmbed()
-        .setColor(stringToHexColour(collection))
+        .setColor("RANDOM")
         .setTitle(selectedCollection.name)
         .setURL(selectedCollection.collectionUrl)
         .setThumbnail(selectedCollection.collectionImage)

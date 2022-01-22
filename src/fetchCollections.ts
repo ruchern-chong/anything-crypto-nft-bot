@@ -1,8 +1,12 @@
-const axios = require("axios");
+import axios from "axios";
+import { EBISUS_BAY_API_BASE_URL } from "./config";
 
-const { EBISUS_BAY_API_BASE_URL } = require("./config");
-
-const fetchCollections = async (collectionId) => {
+/**
+ * Fetch the collections based on the collection IDs provided.
+ *
+ * @param collectionId
+ */
+const fetchCollections = async (collectionId: string) => {
   let params = {};
 
   if (collectionId) {
@@ -23,4 +27,4 @@ const fetchCollections = async (collectionId) => {
   }
 };
 
-module.exports = fetchCollections;
+export default fetchCollections;
