@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "skipLibCheck": true,
+    "target": "es6",
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,6 +1,8 @@
-const EBISUS_BAY_API_BASE_URL = `https://api.ebisusbay.com`;
+import type { CollectionDetail, Marketplace } from "../types";
 
-const MARKETPLACE = {
+export const EBISUS_BAY_API_BASE_URL: string = `https://api.ebisusbay.com`;
+
+export const MARKETPLACE: Marketplace = {
   AGORA_CRO: {
     name: "Agora",
     iconUrl: "https://agoracro.com/icon.png",
@@ -11,7 +13,7 @@ const MARKETPLACE = {
   },
 };
 
-const COLLECTION_MAP = {
+export const COLLECTION_MAP: CollectionDetail = {
   "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe": {
     name: `Chronos Monkey Business`,
     collectionImage: `https://app.ebisusbay.com/img/collections/cronosmb/avatar.png`,
@@ -33,10 +35,4 @@ const COLLECTION_MAP = {
     currency: "CRO",
     marketplace: "EBISUS_BAY",
   },
-};
-
-module.exports = {
-  COLLECTION_MAP,
-  EBISUS_BAY_BASE_URL: EBISUS_BAY_API_BASE_URL,
-  MARKETPLACE,
 };

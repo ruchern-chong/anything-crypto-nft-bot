@@ -1,11 +1,17 @@
-const fs = require("fs");
-const path = require("path");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
-const { Client, Intents, Collection } = require("discord.js");
+import fs from "fs";
+import path from "path";
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
+import { Client, Collection, Intents } from "discord.js";
 
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
 dotenv.config();
+
+declare module "discord.js" {
+  export interface Client {
+    commands: Collection<unknown, any>;
+  }
+}
 
 const client = new Client({
   intents: [
@@ -34,7 +40,7 @@ const clientId = process.env.DISCORD_CLIENT_ID;
 const guildId = process.env.DISCORD_GUILD_ID;
 
 for (const file of commandFiles) {
-  const command = require(`${commandsFolderPath}/${file}`);
+  const command: any = require(`${commandsFolderPath}/${file}`);
   // TODO: Confirm why we need to duplicate the commands
   commands.push(command.data.toJSON());
   client.commands.set(command.data.name, command);
