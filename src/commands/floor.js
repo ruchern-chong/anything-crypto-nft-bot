@@ -27,9 +27,11 @@ module.exports = {
         ])
     ),
   async execute(interaction) {
+    await interaction.deferReply();
+
     const option = interaction.options.get("collection");
 
-    let collections;
+    let collections = [];
 
     if (!option) {
       try {
@@ -79,6 +81,6 @@ module.exports = {
       }
     });
 
-    return interaction.reply({ embeds });
+    return interaction.editReply({ embeds });
   },
 };
