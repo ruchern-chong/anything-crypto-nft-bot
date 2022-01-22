@@ -5,6 +5,9 @@ const { COLLECTION_MAP, MARKETPLACE } = require("../config");
 const fetchCollections = require("../fetchCollections");
 const stringToHexColour = require("../utils/stringToHexColour");
 
+const entries = Object.entries(COLLECTION_MAP);
+const choices = entries.map(([key, value]) => [value.name, key]);
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("floor")
@@ -13,18 +16,7 @@ module.exports = {
       option
         .setName("collection")
         .setDescription("Select the collection")
-        // TODO: Update the choices to support more options dynamically
-        .addChoices([
-          [
-            "Cronos Monkey Business",
-            "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe",
-          ],
-          ["Lazy Horse", "0xD504ed871d33dbD4f56f523A37dceC86Ee918cb6"],
-          [
-            "Lazy Horse Member NFT (PONY)",
-            "0x7d0259070B5f513CA543afb6a906d42af5884B1B",
-          ],
-        ])
+        .addChoices(choices)
     ),
   async execute(interaction) {
     await interaction.deferReply();
