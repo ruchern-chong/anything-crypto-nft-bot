@@ -23,8 +23,18 @@ const client = new Client({
 
 client.commands = new Collection();
 
-client.on("ready", () => {
+client.on("ready", (client: Client) => {
   console.log(`Logged in as ${client.user.tag}!`);
+
+  client.user.setPresence({
+    status: "online",
+    activities: [
+      {
+        name: "Watching NFTs floor price",
+        type: "WATCHING",
+      },
+    ],
+  });
 });
 
 client.login(process.env.DISCORD_BOT_API_TOKEN);
