@@ -4,6 +4,5 @@ export interface CollectionDetail {
     collectionImage: string;
     collectionUrl: string;
     currency: string;
-    marketplace: string;
   };
 }

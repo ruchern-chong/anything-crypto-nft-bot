@@ -1,5 +1,5 @@
 import axios from "axios";
-import { EBISUS_BAY_API_BASE_URL } from "./config";
+import { API_BASE_URL } from "./config";
 
 /**
  * Fetch the collections based on the collection IDs provided.
@@ -17,7 +17,7 @@ const fetchCollections = async (collectionId: string) => {
   }
 
   try {
-    const { data } = await axios.get(`${EBISUS_BAY_API_BASE_URL}/collections`, {
+    const { data } = await axios.get(`${API_BASE_URL}/collections`, {
       params,
     });
     const { collections } = data;

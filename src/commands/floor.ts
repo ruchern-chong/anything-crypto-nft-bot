@@ -47,7 +47,6 @@ module.exports = {
     const embeds = [];
     collections.forEach(({ collection, floorPrice }) => {
       const selectedCollection = COLLECTION_MAP[collection];
-      const selectedMarketplace = MARKETPLACE[selectedCollection.marketplace];
 
       const embed = new MessageEmbed()
         .setColor("RANDOM")
@@ -63,8 +62,8 @@ module.exports = {
         ])
         .setTimestamp(Date.now())
         .setFooter({
-          text: selectedMarketplace.name,
-          iconURL: selectedMarketplace.iconUrl,
+          text: MARKETPLACE.name,
+          iconURL: MARKETPLACE.iconUrl,
         });
 
       embeds.push(embed);
