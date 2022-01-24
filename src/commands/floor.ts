@@ -44,6 +44,20 @@ module.exports = {
     }
     console.info(`Collections:`, collections);
 
+    if (collections.length === 0) {
+      const embed = new MessageEmbed()
+        .setColor("#ff0000")
+        .setTitle(
+          "We are unable to fetch any details for the collection. Minting of the NFTs may still be ongoing."
+        )
+        .setTimestamp(Date.now())
+        .setFooter({
+          text: MARKETPLACE.name,
+          iconURL: MARKETPLACE.iconUrl,
+        });
+      return interaction.editReply({ embeds: [embed] });
+    }
+
     const embeds = [];
     collections.forEach(({ collection, floorPrice }) => {
       const selectedCollection = COLLECTION_MAP[collection];
@@ -69,13 +83,6 @@ module.exports = {
       embeds.push(embed);
     });
     console.info(embeds);
-
-    if (embeds.length === 0) {
-      const embed = new MessageEmbed()
-        .setColor("#ff0000")
-        .setTitle("Error fetching details, please try again later!");
-      return interaction.editReply({ embeds: [embed] });
-    }
 
     return interaction.editReply({ embeds });
   },
