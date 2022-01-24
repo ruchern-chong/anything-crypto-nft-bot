@@ -30,7 +30,7 @@ client.on("ready", (client: Client) => {
     status: "online",
     activities: [
       {
-        name: "Watching NFTs floor price",
+        name: "Ebisu's Bay NFTs floor price",
         type: "WATCHING",
       },
     ],
