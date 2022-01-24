@@ -1,12 +1,16 @@
 import axios from "axios";
 import { API_BASE_URL } from "./config";
 
+import type { CollectionResponse } from "./types";
+
 /**
  * Fetch the collections based on the collection IDs provided.
  *
  * @param collectionId
  */
-const fetchCollections = async (collectionId: string) => {
+const fetchCollections = async (
+  collectionId: string
+): Promise<CollectionResponse[]> => {
   let params = {};
 
   if (collectionId) {

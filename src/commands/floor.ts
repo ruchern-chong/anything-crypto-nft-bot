@@ -4,6 +4,8 @@ import { MessageEmbed } from "discord.js";
 import { COLLECTION_MAP, MARKETPLACE } from "../config";
 import fetchCollections from "../fetchCollections";
 
+import type { CollectionResponse } from "../types";
+
 const choices: [name: string, value: string][] = Object.entries(
   COLLECTION_MAP
 ).map(([key, { name }]) => [name, key]);
@@ -23,7 +25,7 @@ module.exports = {
 
     const option = interaction.options.get("collection");
 
-    let collections = [];
+    let collections: CollectionResponse[] = [];
     if (!option) {
       try {
         const collectionsFromConfig = Object.keys(COLLECTION_MAP).join(",");
@@ -55,11 +57,12 @@ module.exports = {
           text: MARKETPLACE.name,
           iconURL: MARKETPLACE.iconUrl,
         });
+
       return interaction.editReply({ embeds: [embed] });
     }
 
-    const embeds = [];
-    collections.forEach(({ collection, floorPrice }) => {
+    const embeds: MessageEmbed[] = [];
+    collections.forEach(({ collection, floorPrice }: CollectionResponse) => {
       const selectedCollection = COLLECTION_MAP[collection];
 
       const embed = new MessageEmbed()

@@ -1,4 +1,4 @@
-import type { CollectionDetail, Marketplace } from "../types";
+import type { CollectionMap, Marketplace } from "../types";
 
 export const API_BASE_URL: string = `https://api.ebisusbay.com`;
 
@@ -7,7 +7,7 @@ export const MARKETPLACE: Marketplace = {
   iconUrl: "https://app.ebisusbay.com/favicon-32x32.png?v=3",
 };
 
-export const COLLECTION_MAP: CollectionDetail = {
+export const COLLECTION_MAP: CollectionMap = {
   "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe": {
     name: `Chronos Monkey Business`,
     collectionImage: `https://app.ebisusbay.com/img/collections/cronosmb/avatar.png`,

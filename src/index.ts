@@ -41,7 +41,7 @@ client.login(process.env.DISCORD_BOT_API_TOKEN);
 
 const commandsFolderPath = path.resolve(__dirname, "commands");
 
-const commands = [];
+const commands: string[] = [];
 const commandFiles = fs
   .readdirSync(commandsFolderPath)
   .filter((file) => file.endsWith(".js"));
@@ -50,7 +50,7 @@ const clientId = process.env.DISCORD_CLIENT_ID;
 const guildId = process.env.DISCORD_GUILD_ID;
 
 for (const file of commandFiles) {
-  const command: any = require(`${commandsFolderPath}/${file}`);
+  const command = require(`${commandsFolderPath}/${file}`);
   // TODO: Confirm why we need to duplicate the commands
   commands.push(command.data.toJSON());
   client.commands.set(command.data.name, command);
