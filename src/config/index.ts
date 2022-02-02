@@ -26,4 +26,12 @@ export const COLLECTION_MAP: CollectionMap = {
     collectionUrl: `https://app.ebisusbay.com/collection/0x7d0259070B5f513CA543afb6a906d42af5884B1B`,
     currency: "CRO",
   },
+  "0x9a219f71d435be7fadb5824dd843c7fc830c118f": {
+    name: "MAG Brew Vikings",
+    collectionImage:
+      "https://app.ebisusbay.com/img/collections/magbrew/avatar.jpg",
+    collectionUrl:
+      "https://app.ebisusbay.com/collection/0x9a219f71d435be7fadb5824dd843c7fc830c118f",
+    currency: "CRO",
+  },
 };
