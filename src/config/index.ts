@@ -8,6 +8,12 @@ export const MARKETPLACE: Marketplace = {
 };
 
 export const COLLECTION_MAP: CollectionMap = {
+  "0x8d9232Ebc4f06B7b8005CCff0ca401675ceb25F5": {
+    name: `Ebisu's Bay - ALL Founding Member`,
+    collectionImage: `https://app.ebisusbay.com/img/avatar.jpg`,
+    collectionUrl: `https://app.ebisusbay.com/collection/0x8d9232Ebc4f06B7b8005CCff0ca401675ceb25F5`,
+    currency: "CRO",
+  },
   "0x939b90c529F0e3a2C187E1b190Ca966a95881FDe": {
     name: `Chronos Monkey Business`,
     collectionImage: `https://app.ebisusbay.com/img/collections/cronosmb/avatar.png`,
