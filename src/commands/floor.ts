@@ -6,9 +6,14 @@ import fetchCollections from "../fetchCollections";
 
 import type { CollectionResponse } from "../types";
 
-const choices: [name: string, value: string][] = Object.entries(
-  COLLECTION_MAP
-).map(([key, { name }]) => [name, key]);
+const sortedChoices = Object.entries(COLLECTION_MAP).sort(
+  ([keyA, { name: nameA }], [keyB, { name: nameB }]) =>
+    nameA.localeCompare(nameB)
+);
+
+const choices: [name: string, value: string][] = sortedChoices.map(
+  ([key, { name }]) => [name, key]
+);
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -85,6 +90,8 @@ module.exports = {
 
       embeds.push(embed);
     });
+
+    embeds.sort((a, b) => a.title.localeCompare(b.title));
     console.info(embeds);
 
     return interaction.editReply({ embeds });
